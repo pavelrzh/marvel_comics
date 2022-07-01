@@ -1,4 +1,5 @@
-import {Component} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import MarvelService from '../../services/MarvelService';
@@ -16,11 +17,12 @@ class CharList extends Component {
     }
     
     marvelService = new MarvelService();
-
+    
     componentDidMount() {
         this.marvelService.getAllCharacters()
             .then(this.onCharListLoaded)
             .catch(this.onError)
+         
     }
 
     onRequest = (offset) => {
@@ -57,25 +59,53 @@ class CharList extends Component {
         })
     }
 
+    myRef = [];
+
+    setRef = (ref) => {
+        this.myRef.push(ref);
+    } 
+
+    onFocusItem = (id) => {
+        this.myRef.forEach(item => item.classList.remove('char__item_selected'));
+        this.myRef[id].classList.add('char__item_selected');
+        this.myRef[id].focus();
+
+    }   
+
     // Этот метод создан для оптимизации, 
     // чтобы не помещать такую конструкцию в метод render
     renderItems(arr) {
-        const cards = arr.map((item) => {
+      const cards = arr.map((item, i) => {
             let imgClass = item.thumbnail.includes('image_not_available') ? {'objectFit' : 'unset'} : {'objectFit' : 'cover'};
-            
+        
             return (
                 <li 
                     className="char__item"
+                    ref={this.setRef}
+                    tabIndex={0}
                     key={item.id}
-                    onClick={() => this.props.onCharSelected(item.id)}>
+                    onClick={() => {
+                        this.props.onCharSelected(item.id);
+                        this.onFocusItem(i);
+                    }}
+                    onKeyPress={(e) => {
+                        if (e.key === ' ' || e.key === "Enter") {
+                            this.props.onCharSelected(item.id);
+                            this.onFocusItem(i);
+                        }
+                    }}    
+                    >
                         <img src={item.thumbnail} alt={item.name} style={imgClass}/>
                         <div className="char__name">{item.name}</div>
                 </li>
             )
-        });
+        });  
+    
+    
+        
         // А эта конструкция вынесена для центровки спиннера/ошибки
         return (
-            <ul className="char__grid">
+            <ul className="char__grid"> 
                 {cards}
             </ul>
         )
@@ -106,6 +136,10 @@ class CharList extends Component {
             </div>
         )
     }
+}
+
+CharList.propTypes = {
+    onCharSelected: PropTypes.func.isRequired
 }
 
 export default CharList;
