@@ -77,7 +77,7 @@ class RandomChar extends Component {
                     </p>
                     <button className="button button__main"
                         onClick={this.onTryIt}>
-                        <div className="inner">test</div>
+                        <div className="inner">try it</div>
                     </button>
                     <img src={mjolnir} alt="mjolnir" className="randomchar__decoration"/>
                 </div>
