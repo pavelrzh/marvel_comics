@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/marvel_comics/static/css/main.e4c27aee.chunk.css",
-    "main.js": "/marvel_comics/static/js/main.703fd76d.chunk.js",
-    "main.js.map": "/marvel_comics/static/js/main.703fd76d.chunk.js.map",
-    "runtime-main.js": "/marvel_comics/static/js/runtime-main.bfeb6c46.js",
-    "runtime-main.js.map": "/marvel_comics/static/js/runtime-main.bfeb6c46.js.map",
-    "static/js/2.5e8bb286.chunk.js": "/marvel_comics/static/js/2.5e8bb286.chunk.js",
-    "static/js/2.5e8bb286.chunk.js.map": "/marvel_comics/static/js/2.5e8bb286.chunk.js.map",
-    "index.html": "/marvel_comics/index.html",
-    "static/css/main.e4c27aee.chunk.css.map": "/marvel_comics/static/css/main.e4c27aee.chunk.css.map",
-    "static/js/2.5e8bb286.chunk.js.LICENSE.txt": "/marvel_comics/static/js/2.5e8bb286.chunk.js.LICENSE.txt",
-    "static/media/error.42292aa1.gif": "/marvel_comics/static/media/error.42292aa1.gif",
-    "static/media/mjolnir.61f31e18.png": "/marvel_comics/static/media/mjolnir.61f31e18.png",
-    "static/media/vision.067d4ae1.png": "/marvel_comics/static/media/vision.067d4ae1.png"
+    "main.css": "/static/css/main.e4c27aee.chunk.css",
+    "main.js": "/static/js/main.b9471073.chunk.js",
+    "main.js.map": "/static/js/main.b9471073.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.76f7a808.js",
+    "runtime-main.js.map": "/static/js/runtime-main.76f7a808.js.map",
+    "static/js/2.5e8bb286.chunk.js": "/static/js/2.5e8bb286.chunk.js",
+    "static/js/2.5e8bb286.chunk.js.map": "/static/js/2.5e8bb286.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.e4c27aee.chunk.css.map": "/static/css/main.e4c27aee.chunk.css.map",
+    "static/js/2.5e8bb286.chunk.js.LICENSE.txt": "/static/js/2.5e8bb286.chunk.js.LICENSE.txt",
+    "static/media/error.42292aa1.gif": "/static/media/error.42292aa1.gif",
+    "static/media/mjolnir.61f31e18.png": "/static/media/mjolnir.61f31e18.png",
+    "static/media/vision.067d4ae1.png": "/static/media/vision.067d4ae1.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.bfeb6c46.js",
+    "static/js/runtime-main.76f7a808.js",
     "static/js/2.5e8bb286.chunk.js",
     "static/css/main.e4c27aee.chunk.css",
-    "static/js/main.703fd76d.chunk.js"
+    "static/js/main.b9471073.chunk.js"
   ]
 }
