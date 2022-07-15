@@ -5,6 +5,7 @@ import useMarvelService from '../../services/MarvelService';
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import Skeleton from '../skeleton/Skeleton';
+import { Link } from 'react-router-dom';
 
 const CharInfo = (props) => {
     
@@ -83,9 +84,14 @@ const View = ({char}) => {
                 comics.map((comics, i) => {
     // eslint-disable-next-line
                     if (i >= 10) return;
+
+
                     return (
-                        <li key={i} className="char__comics-item">
-                            {comics.name}
+                        <li key={i} 
+                            className="char__comics-item">
+                            <Link to={`/comics/${comics.resourceURI.substring(43)}`}>   
+                                {comics.name}
+                            </Link>
                         </li>
                     )
                 })
