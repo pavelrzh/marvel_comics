@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
 import PropTypes from 'prop-types';
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
@@ -8,8 +9,6 @@ import './charList.scss';
 const CharList = (props) => {
 
     const [charList, setCharList] = useState([]);
-    // const [loading, setLoading] = useState(true);
-    // const [error, setError] = useState(false);
     const [newItemLoading, setNewItemLoading] = useState(false);
     const [offset, setOffset] = useState(210);
     const [charEnded, setCharEnded] = useState(false);
@@ -53,9 +52,11 @@ const CharList = (props) => {
     function renderItems(arr) {
       const cards = arr.map((item, i) => {
             let imgClass = item.thumbnail.includes('image_not_available') ? {'objectFit' : 'unset'} : {'objectFit' : 'cover'};
-        
+
+
             return (
-                <li 
+                <CSSTransition key={item.id} timeout={300} classNames="char__item">
+                    <li 
                     className="char__item"
                     ref={el => myRef.current[i] = el}   //в массиве myRef - список ссылок на DOM-элементы <li> 
                     tabIndex={0}
@@ -73,17 +74,22 @@ const CharList = (props) => {
                     >
                         <img src={item.thumbnail} alt={item.name} style={imgClass}/>
                         <div className="char__name">{item.name}</div>
-                </li>
+                    </li>
+                </CSSTransition>
+                    
+                
             )
         });  
-    
     
         
         // А эта конструкция вынесена для центровки спиннера/ошибки
         return (
-            <ul className="char__grid"> 
-                {cards}
-            </ul>
+                <ul className="char__grid"> 
+                    <TransitionGroup component={null}>
+                        {cards}
+                    </TransitionGroup>
+                </ul>
+            
         )
     }
 

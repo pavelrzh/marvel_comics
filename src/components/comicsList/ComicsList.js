@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { Link } from 'react-router-dom';
 import useMarvelService from '../../services/MarvelService';
 import Spinner from '../spinner/Spinner';
@@ -40,7 +41,8 @@ const ComicsList = () => {
     function renderItems(arr) {
         const cards = arr.map((item) => {
             return (
-                <li className="comics__item"
+                <CSSTransition key={item.id} timeout={300} classNames="comics__item">
+                    <li className="comics__item"
                     key={item.id}
                     tabIndex={0}
                     >
@@ -50,12 +52,16 @@ const ComicsList = () => {
                         <div className="comics__item-price">{item.price}</div>
                     </Link>
                 </li>
+                </CSSTransition>
+                
             )
         })
 
         return (
             <ul className="comics__grid"> 
-                {cards}
+                <TransitionGroup component={null}>
+                    {cards}
+                </TransitionGroup>
             </ul>
         )
     }
