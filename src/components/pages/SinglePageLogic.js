@@ -25,6 +25,9 @@ const SinglePageLogic = ({Component, dataType}) => {
                     break;
                 case 'character':
                     getCharacter(id).then(onDataLoaded);
+                    break;
+                default: 
+                    throw new Error('Unexpected dataType');
             }
         }
 
